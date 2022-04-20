@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.TollMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.TollMessage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="patient_id" property="patientId" jdbcType="INTEGER" />
+    <result column="charge_projects" property="chargeProjects" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="sum_price" property="sumPrice" jdbcType="INTEGER" />
+    <result column="toll_time" property="tollTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from toll_message
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.TollMessage" >
+    insert into toll_message (id, patient_id, charge_projects, 
+      price, sum_price, toll_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{patientId,jdbcType=INTEGER}, #{chargeProjects,jdbcType=INTEGER}, 
+      #{price,jdbcType=INTEGER}, #{sumPrice,jdbcType=INTEGER}, #{tollTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.entity.TollMessage" >
+    update toll_message
+    set patient_id = #{patientId,jdbcType=INTEGER},
+      charge_projects = #{chargeProjects,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER},
+      sum_price = #{sumPrice,jdbcType=INTEGER},
+      toll_time = #{tollTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, patient_id, charge_projects, price, sum_price, toll_time
+    from toll_message
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, patient_id, charge_projects, price, sum_price, toll_time
+    from toll_message
+  </select>
+</mapper>

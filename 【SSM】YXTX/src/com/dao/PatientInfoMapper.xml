@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.PatientInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.PatientInfo" >
+    <id column="patient_id" property="patientId" jdbcType="INTEGER" />
+    <result column="patient_subject" property="patientSubject" jdbcType="INTEGER" />
+    <result column="patient_bedno" property="patientBedno" jdbcType="INTEGER" />
+    <result column="patient_name" property="patientName" jdbcType="VARCHAR" />
+    <result column="patient_sex" property="patientSex" jdbcType="VARCHAR" />
+    <result column="patient_age" property="patientAge" jdbcType="VARCHAR" />
+    <result column="patient_disease" property="patientDisease" jdbcType="VARCHAR" />
+    <result column="patient_doctor" property="patientDoctor" jdbcType="VARCHAR" />
+    <result column="admission_date" property="admissionDate" jdbcType="TIMESTAMP" />
+    <result column="discharge_date" property="dischargeDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from patient_info
+    where patient_id = #{patientId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.PatientInfo" >
+    insert into patient_info (patient_id, patient_subject, patient_bedno, 
+      patient_name, patient_sex, patient_age, 
+      patient_disease, patient_doctor, admission_date, 
+      discharge_date)
+    values (#{patientId,jdbcType=INTEGER}, #{patientSubject,jdbcType=INTEGER}, #{patientBedno,jdbcType=INTEGER}, 
+      #{patientName,jdbcType=VARCHAR}, #{patientSex,jdbcType=VARCHAR}, #{patientAge,jdbcType=VARCHAR}, 
+      #{patientDisease,jdbcType=VARCHAR}, #{patientDoctor,jdbcType=VARCHAR}, #{admissionDate,jdbcType=TIMESTAMP}, 
+      #{dischargeDate,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.entity.PatientInfo" >
+    update patient_info
+    set patient_subject = #{patientSubject,jdbcType=INTEGER},
+      patient_bedno = #{patientBedno,jdbcType=INTEGER},
+      patient_name = #{patientName,jdbcType=VARCHAR},
+      patient_sex = #{patientSex,jdbcType=VARCHAR},
+      patient_age = #{patientAge,jdbcType=VARCHAR},
+      patient_disease = #{patientDisease,jdbcType=VARCHAR},
+      patient_doctor = #{patientDoctor,jdbcType=VARCHAR},
+      admission_date = #{admissionDate,jdbcType=TIMESTAMP},
+      discharge_date = #{dischargeDate,jdbcType=TIMESTAMP}
+    where patient_id = #{patientId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select patient_id, patient_subject, patient_bedno, patient_name, patient_sex, patient_age, 
+    patient_disease, patient_doctor, admission_date, discharge_date
+    from patient_info
+    where patient_id = #{patientId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select patient_id, patient_subject, patient_bedno, patient_name, patient_sex, patient_age, 
+    patient_disease, patient_doctor, admission_date, discharge_date
+    from patient_info
+  </select>
+</mapper>

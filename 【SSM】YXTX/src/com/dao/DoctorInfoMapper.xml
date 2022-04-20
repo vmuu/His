@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.DoctorInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.DoctorInfo" >
+    <id column="doctor_id" property="doctorId" jdbcType="INTEGER" />
+    <result column="doctor_name" property="doctorName" jdbcType="VARCHAR" />
+    <result column="doctor_sex" property="doctorSex" jdbcType="VARCHAR" />
+    <result column="doctor_title" property="doctorTitle" jdbcType="VARCHAR" />
+    <result column="doctor_job" property="doctorJob" jdbcType="VARCHAR" />
+    <result column="doctor_subject" property="doctorSubject" jdbcType="VARCHAR" />
+    <result column="doctor_birthday" property="doctorBirthday" jdbcType="DATE" />
+    <result column="job_tiem" property="jobTiem" jdbcType="DATE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from doctor_info
+    where doctor_id = #{doctorId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.DoctorInfo" >
+    insert into doctor_info (doctor_id, doctor_name, doctor_sex, 
+      doctor_title, doctor_job, doctor_subject, 
+      doctor_birthday, job_tiem)
+    values (#{doctorId,jdbcType=INTEGER}, #{doctorName,jdbcType=VARCHAR}, #{doctorSex,jdbcType=VARCHAR}, 
+      #{doctorTitle,jdbcType=VARCHAR}, #{doctorJob,jdbcType=VARCHAR}, #{doctorSubject,jdbcType=VARCHAR}, 
+      #{doctorBirthday,jdbcType=DATE}, #{jobTiem,jdbcType=DATE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.entity.DoctorInfo" >
+    update doctor_info
+    set doctor_name = #{doctorName,jdbcType=VARCHAR},
+      doctor_sex = #{doctorSex,jdbcType=VARCHAR},
+      doctor_title = #{doctorTitle,jdbcType=VARCHAR},
+      doctor_job = #{doctorJob,jdbcType=VARCHAR},
+      doctor_subject = #{doctorSubject,jdbcType=VARCHAR},
+      doctor_birthday = #{doctorBirthday,jdbcType=DATE},
+      job_tiem = #{jobTiem,jdbcType=DATE}
+    where doctor_id = #{doctorId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select doctor_id, doctor_name, doctor_sex, doctor_title, doctor_job, doctor_subject, 
+    doctor_birthday, job_tiem
+    from doctor_info
+    where doctor_id = #{doctorId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select doctor_id, doctor_name, doctor_sex, doctor_title, doctor_job, doctor_subject, 
+    doctor_birthday, job_tiem
+    from doctor_info
+  </select>
+</mapper>

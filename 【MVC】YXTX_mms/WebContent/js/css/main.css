@@ -1,0 +1,95 @@
+.layui-layout-admin .header {
+    height: 94px;
+    border-bottom: 5px solid #5FB878;
+    background-color: #FFFFFF;
+    color: #fff;
+}
+.layui-layout-admin .layui-logo{
+	width: 600px;
+	vertical-align: middle;
+	color: #7892bd;
+	font-size: 44px;
+	letter-spacing: 5px;
+	/* font-family: cursive; */
+	font-weight: bold;
+	line-height: 20px;
+}
+.layui-nav * {
+    font-size: 14px;
+}
+.layui-layout-admin .layui-logo div{
+	float: right;
+	line-height: 100%;
+	padding: 30px 0px;
+}
+.layui-logo  img{
+	padding: 2%;
+	height: 85%;
+}
+.layui-nav .layui-nav-item a{
+	
+}
+.layui-nav-item a{
+	color: #c2c2c2;
+}
+.layui-layout-right{
+	line-height: 94px;
+}
+.layui-nav-item a{
+	color: #C2C2C2;
+}
+.layui-layout-admin .layui-side{
+	top: 95px;
+}
+.layui-layout-admin .layui-body{
+	top: 95px;
+}
+.layui-layout-right .layui-nav-item a{
+	color: #a8a8a8;
+}
+.layui-layout-right .layui-nav-item a:hover{
+	color: #000000;
+}
+
+.layui-nav .layui-nav-more {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid dashed dashed;
+    border-color: #c2c2c2 transparent transparent;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    position: absolute;
+    top: 28px;
+    right: 3px;
+    border-width: 6px;
+}
+.layui-nav-tree li dl a{
+	text-align: center;
+}
+.layui-tab-card>.layui-tab-title {
+    background-color: #f2f2f2;
+}
+.layui-nav-item .layui-icon{
+	font-size: 20px;
+}
+.layui-tab .layui-tab-content .layui-tab-item{
+	width: 100%;
+	height: 100%;
+}
+.layui-tab-title .layui-this {
+    background-color: #009688;
+    color: #fff;
+}
+
+.layui-table-cell{
+	font-size:14px;
+	padding:0 5px;
+	height:auto;
+	overflow:visible;
+	text-overflow:inherit;
+	white-space:normal;
+	word-break: break-all;
+}
